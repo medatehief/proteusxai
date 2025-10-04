@@ -1,2 +1,2 @@
 # proteusxai
-Launch Page mad with v0
+Launch Page made with v0
