@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import { emailConfig } from "@/lib/config"
 
-const resend = new Resend("re_3u9fGZfp_AqSQMsqakcBCiiiFs5YqXaxm")
+const resend = new Resend("re_hQuJcib6_HmhyEDu8k8HusTNsNuNgqtaJ")
 
 export async function POST(request: Request) {
   try {

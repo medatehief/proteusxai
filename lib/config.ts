@@ -1,7 +1,7 @@
 // Email configuration for Resend API
 export const emailConfig = {
   // The email address that will receive form submissions
-  recipientEmail: "kevin@proteusx.tech",
+  recipientEmail: "kevinmok52@gmail.com",
 
   // The "from" email address (must be verified in Resend)
   fromEmail: process.env.RESEND_FROM_EMAIL || "kevinmok52@gmail.com",
