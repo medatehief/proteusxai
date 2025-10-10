@@ -2,25 +2,23 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import { emailConfig } from "@/lib/config"
 
-const resend = new Resend("re_hQuJcib6_HmhyEDu8k8HusTNsNuNgqtaJ")
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
     const { name, email, phone, companyName, industry, message } = body
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // Send email using Resend
     const bccList =
       typeof emailConfig.bccEmails === "string" && emailConfig.bccEmails.length > 0
         ? emailConfig.bccEmails.split(",")
         : undefined
 
-    const { data, error } = await resend.emails.send({
+    const data = await resend.emails.send({
       from: emailConfig.fromEmail,
       to: emailConfig.recipientEmail,
       subject: emailConfig.subject,
@@ -37,14 +35,9 @@ export async function POST(request: Request) {
       ...(bccList ? { bcc: bccList } : {}),
     })
 
-    if (error) {
-      console.error("[v0] Resend error:", error)
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
-    }
-
     return NextResponse.json({ success: true, data })
-  } catch (error) {
-    console.error("[v0] API error:", error)
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+  } catch (err: any) {
+    console.error("[v0] API error:", err)
+    return NextResponse.json({ error: err.message || "Internal server error" }, { status: 500 })
   }
 }
