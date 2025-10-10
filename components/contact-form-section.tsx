@@ -15,10 +15,43 @@ export function ContactFormSection() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] Form submitted:", formData)
-    // Handle form submission
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        // Reset form on success
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          companyName: "",
+          industry: "",
+          message: "",
+        })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error("[v0] Form submission error:", error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -115,11 +148,24 @@ export function ContactFormSection() {
               </p>
             </div>
 
+            {submitStatus === "success" && (
+              <div className="p-4 bg-primary/10 border border-primary/20 rounded-xl text-primary text-center">
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+
+            {submitStatus === "error" && (
+              <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-xl text-destructive text-center">
+                Something went wrong. Please try again.
+              </div>
+            )}
+
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-6 rounded-xl text-lg"
+              disabled={isSubmitting}
+              className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-6 rounded-xl text-lg disabled:opacity-50"
             >
-              Submit
+              {isSubmitting ? "Sending..." : "Submit"}
             </Button>
           </form>
         </div>
