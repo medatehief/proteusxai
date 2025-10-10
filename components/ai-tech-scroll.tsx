@@ -7,7 +7,7 @@ const technologies = [
   { name: "Anthropic", logo: "https://cdn.simpleicons.org/anthropic/D4A27F" },
   { name: "Google", logo: "https://cdn.simpleicons.org/google/4285F4" },
   { name: "Meta", logo: "https://cdn.simpleicons.org/meta/0668E1" },
-  { name: "Microsoft", logo: "https://cdn.simpleicons.org/microsoftazure/0078D4" },
+  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/47/Microsoft_Azure_Logo.svg" },
   { name: "Zapier", logo: "https://cdn.simpleicons.org/zapier/FF4A00" },
   { name: "Slack", logo: "https://cdn.simpleicons.org/slack/4A154B" },
   { name: "Notion", logo: "https://cdn.simpleicons.org/notion/000000" },
