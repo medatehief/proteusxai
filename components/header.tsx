@@ -22,15 +22,17 @@ export function Header() {
                 <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">
                   Testimonials
                 </a>
-                <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
-                  Pricing
+                <a href="#FAQ" className="text-muted-foreground hover:text-primary transition-colors">
+                  FAQs
                 </a>
               </div>
             </nav>
             <div className="flex items-center space-x-4">
+              <a href="#contact">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full">
                 Free Discovery Call
               </Button>
+              </a>
             </div>
           </div>
         </div>

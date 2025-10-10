@@ -16,11 +16,19 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <AITechScroll />
+        <section id="features">
         <FeaturesSection />
+        </section>
         <ServicesSection />
+        <section id="how-it-works">
         <AutomationProcessSection />
+        </section>
+        <section id="testimonials">
         <TestimonialsStatsSection />
+        </section>
+        <section id="FAQ">
         <FAQSection />
+        </section>
         <ContactFormSection />
       </main>
       <footer className="py-8 px-4">
