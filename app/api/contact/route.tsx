@@ -18,6 +18,7 @@ export async function POST(request: Request) {
         ? emailConfig.bccEmails.split(",")
         : undefined
 
+    // 1️⃣ Send the email
     const data = await resend.emails.send({
       from: emailConfig.fromEmail,
       to: emailConfig.recipientEmail,
@@ -34,6 +35,21 @@ export async function POST(request: Request) {
       `,
       ...(bccList ? { bcc: bccList } : {}),
     })
+
+    // 2️⃣ Add contact to Resend Audience (general email list)
+    if (process.env.RESEND_AUDIENCE_ID) {
+      try {
+        await resend.contacts.create({
+          audienceId: process.env.RESEND_AUDIENCE_ID,
+          email,
+          firstName: name.split(" ")[0],
+          lastName: name.split(" ").slice(1).join(" ") || undefined,
+        })
+      } catch (contactErr: any) {
+        console.error("[v0] Resend contact error:", contactErr)
+        // We don’t throw here — failing to add to contacts shouldn’t block email sending
+      }
+    }
 
     return NextResponse.json({ success: true, data })
   } catch (err: any) {

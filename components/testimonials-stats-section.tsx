@@ -1,26 +1,27 @@
+import Image from "next/image"
 import { Star } from "lucide-react"
 
 export function TestimonialsStatsSection() {
   const testimonials = [
     {
-      logo: "🏢",
-      company: "Tech Startup",
-      text: "Their AI solutions helped us automate 80% of our customer support, allowing our team to focus on complex issues.",
-      author: "Mary Lee, Founder, SIA",
+      logo: "https://framerusercontent.com/images/OcBIpBHaptGIiUJIqPUX8gdT20Q.png",
+      company: "GSL",
+      text: "Their comprehensive automation setup saves us hours on document and data processing. It's also reduced errors and lost package claims drastically.",
+      author: "Warren Zhou, Head of Engineering",
       rating: 5,
     },
     {
-      logo: "🏪",
-      company: "DIBS VTC",
-      text: "With streamlined sales and the automation of repetitive tasks, we've seen a 40% increase in productivity.",
-      author: "Jimmy, Store Owner",
+      logo: "https://framerusercontent.com/images/0HLl6V8Kjok1LrivdyZBQGOnwxw.png?scale-down-to=512",
+      company: "DIDA NYC",
+      text: "Kevin absolutely killed it with the automation of our e-commerce workflow and our customer support line. It's good to have my personal phone not blowing up 24/7.",
+      author: "Mikhail Pinkhasov, Owner",
       rating: 5,
     },
     {
-      logo: "🌾",
-      company: "Great Harvest",
-      text: "Our website and marketing are amazing, and support is always there when we need them. Highly recommend!",
-      author: "Amy, Store Manager",
+      logo: "https://framerusercontent.com/images/6liIdL3yAPRMXmpBszWKEfWIIi4.png",
+      company: "Sweet Mandarin",
+      text: "Our website and our ordering and delivery system were a mess until ProteusX AI helped us systemise our workflows at the restaurant and online.",
+      author: "Alan Yeung, CEO",
       rating: 5,
     },
   ]
@@ -37,15 +38,22 @@ export function TestimonialsStatsSection() {
               key={index}
               className="bg-card/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-primary/30 transition-all"
             >
-              <div className="text-4xl mb-4">{testimonial.logo}</div>
+              <div className="w-24 h-24 mb-4 relative mx-auto">
+                <Image
+                  src={testimonial.logo}
+                  alt={`${testimonial.company} logo`}
+                  fill
+                  className="object-contain rounded-xl"
+                />
+              </div>
               <div className="text-lg font-bold text-foreground mb-2">{testimonial.company}</div>
               <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{testimonial.text}</p>
-              <div className="flex gap-1 mb-3">
+              <div className="flex gap-1 mb-3 justify-center">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <div className="text-sm text-foreground font-medium">{testimonial.author}</div>
+              <div className="text-sm text-foreground font-medium text-center">{testimonial.author}</div>
             </div>
           ))}
         </div>
