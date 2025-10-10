@@ -4,7 +4,7 @@ export const emailConfig = {
   recipientEmail: "kevin@proteusx.tech",
 
   // The "from" email address (must be verified in Resend)
-  fromEmail: process.env.RESEND_FROM_EMAIL || "notifications@proteusx.tech",
+  fromEmail: process.env.RESEND_FROM_EMAIL || "kevinmok52@gmail.com",
 
   // Email subject line for contact form submissions
   subject: "New Contact Form Submission - ProteusX AI",
