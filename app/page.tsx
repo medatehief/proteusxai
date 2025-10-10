@@ -7,6 +7,7 @@ import { AutomationProcessSection } from "@/components/automation-process-sectio
 import { TestimonialsStatsSection } from "@/components/testimonials-stats-section"
 import { FAQSection } from "@/components/faq-section"
 import { ContactFormSection } from "@/components/contact-form-section"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -22,6 +23,24 @@ export default function HomePage() {
         <FAQSection />
         <ContactFormSection />
       </main>
+      <footer className="py-8 px-4">
+        <div className="container mx-auto flex justify-end">
+          <a
+            href="https://elevenlabs.io/startup-grants"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block transition-opacity hover:opacity-80"
+          >
+            <Image
+              src="/elevenlabs-grant.webp"
+              alt="ElevenLabs"
+              width={250}
+              height={100}
+              className="w-[250px] h-auto"
+            />
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
