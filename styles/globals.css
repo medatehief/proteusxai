@@ -1,6 +1,17 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@keyframes grow {
+  from { height: 50%; }
+  to { height: 100%; }
+}
 
+.animate-grow {
+  animation: grow 1s ease-out forwards;
+}
+
+.group:hover .animate-grow {
+  animation: grow 1s ease-out forwards;
+}
 @custom-variant dark (&:is(.dark *));
 
 :root {

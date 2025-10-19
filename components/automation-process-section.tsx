@@ -14,7 +14,7 @@ export function AutomationProcessSection() {
         </div>
 
         <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-4 text-balance">
-          Reliable AI Automations,
+          Reliable AI Automations
         </h2>
         <h2 className="text-4xl md:text-5xl font-bold text-center text-muted-foreground mb-16 text-balance">
           seamlessly integrated with your business

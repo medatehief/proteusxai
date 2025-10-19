@@ -1,10 +1,10 @@
 // Email configuration for Resend API
 export const emailConfig = {
   // The email address that will receive form submissions
-  recipientEmail: "kevinmok52@gmail.com",
+  recipientEmail: process.env.RESEND_TO_EMAIL || "",
 
   // The "from" email address (must be verified in Resend)
-  fromEmail: process.env.RESEND_FROM_EMAIL || "kevinmok52@gmail.com",
+  fromEmail: process.env.RESEND_FROM_EMAIL || "",
 
   // Email subject line for contact form submissions
   subject: "New Contact Form Submission - ProteusX AI",

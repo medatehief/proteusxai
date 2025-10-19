@@ -62,7 +62,7 @@ export function ContactFormSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-background relative">
+    <section id="contact" className="bg-background relative">
       <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -72,7 +72,7 @@ export function ContactFormSection() {
           </h2>
           <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-6">Discovery Call</h2>
           <p className="text-center text-muted-foreground mb-12">
-            Use our AI and automation calculator to see how much time and money you could save with AI
+            See how AI and automation can help you take your business to the next level
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -170,6 +170,7 @@ export function ContactFormSection() {
           </form>
         </div>
       </div>
+      <div className="py-32"></div>
     </section>
   )
 }

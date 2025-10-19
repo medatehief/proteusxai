@@ -3,40 +3,57 @@ import { Button } from "@/components/ui/button"
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-background py-20 sm:py-32">
-      <div className="absolute left-8 top-32 hidden lg:block">
-        <div className="w-20 h-32 bg-card border border-primary/20 rounded-lg p-2 rotate-12 shadow-lg">
-          <div className="w-full h-6 bg-primary/20 rounded mb-2"></div>
-          <div className="w-full h-4 bg-muted rounded mb-1"></div>
-          <div className="w-3/4 h-4 bg-muted rounded mb-1"></div>
-          <div className="w-1/2 h-4 bg-muted rounded"></div>
+      <div className="absolute left-36 top-32 hidden lg:block">
+        <div className="w-50 h-50 rounded-lg shadow-lg rotate-[-8deg] overflow-hidden bg-background/70 backdrop-blur-sm">
+        <img decoding="async" 
+        
+          src="https://framerusercontent.com/images/71Lkazp81ZpTwq5E8mgETaQgA8.jpg" 
+          alt="" 
+          className="w-full h-full object-cover 
+                        [mask-image:radial-gradient(circle_at_center,white_50%,transparent_100%)] 
+                        [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]"></img>
         </div>
       </div>
 
-      <div className="absolute right-8 top-40 hidden lg:block">
-        <div className="w-24 h-36 bg-card border border-primary/20 rounded-lg p-2 -rotate-6 shadow-lg">
-          <div className="w-full h-8 bg-primary/30 rounded mb-2"></div>
-          <div className="w-full h-3 bg-muted rounded mb-1"></div>
-          <div className="w-2/3 h-3 bg-muted rounded mb-1"></div>
-          <div className="w-full h-3 bg-muted rounded"></div>
+     <div className="absolute right-64 top-40 hidden lg:block">
+        <div className="w-28 h-40 rounded-lg shadow-lg rotate-[8deg] overflow-hidden bg-background/70 backdrop-blur-sm">
+          <img
+            decoding="async"
+            src="https://framerusercontent.com/images/Br0m8k72i6obkxvmy0bdrdCw50Y.jpg"
+            alt=""
+            className="w-full h-full object-cover 
+                      [mask-image:radial-gradient(circle_at_center,white_50%,transparent_100%)] 
+                      [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]"
+          />
         </div>
       </div>
-
       <div className="absolute left-32 bottom-20 hidden lg:block">
-        <div className="w-28 h-20 bg-card border border-primary/20 rounded-lg p-2 rotate-6 shadow-lg">
-          <div className="w-full h-4 bg-primary/20 rounded mb-1"></div>
-          <div className="w-3/4 h-3 bg-muted rounded mb-1"></div>
-          <div className="w-1/2 h-3 bg-muted rounded"></div>
-        </div>
+        <div className="w-60 h-80 rounded-lg shadow-lg -rotate-10 overflow-hidden relative">
+        <img decoding="async" 
+          sizes="187.1648px" 
+          /*srcset="https://framerusercontent.com/images/khvm0RCeCoJIh3gn2goGmWrcG6g.png?scale-down-to=1024 674w,https://framerusercontent.com/images/khvm0RCeCoJIh3gn2goGmWrcG6g.png 748w" */
+          src="https://framerusercontent.com/images/khvm0RCeCoJIh3gn2goGmWrcG6g.png?scale-down-to=1024" 
+          alt=""
+          className="w-full h-full object-cover 
+                      [mask-image:radial-gradient(circle_at_center,white_50%,transparent_100%)] 
+                      [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]" ></img>
+          </div>
       </div>
 
       <div className="absolute right-32 bottom-32 hidden lg:block">
-        <div className="w-32 h-24 bg-card border border-primary/20 rounded-lg p-3 -rotate-12 shadow-lg">
-          <div className="text-xs text-primary font-semibold mb-1">Credentials</div>
-          <div className="w-full h-2 bg-muted rounded mb-1"></div>
-          <div className="w-2/3 h-2 bg-muted rounded"></div>
+        <div className="w-60 h-60 rounded-lg shadow-lg -rotate-[-10deg] overflow-hidden relative">
+          <img
+            decoding="async"
+            src="https://framerusercontent.com/images/9TKZna4TfSaouPHKZ1nNGn5s4.jpg?scale-down-to=512"
+            srcSet="https://framerusercontent.com/images/9TKZna4TfSaouPHKZ1nNGn5s4.jpg 662w"
+            sizes="222px"
+            alt=""
+            className="w-full h-full object-cover 
+                      [mask-image:radial-gradient(circle_at_center,white_50%,transparent_100%)] 
+                      [mask-repeat:no-repeat] [mask-position:center] [mask-size:cover]"
+          />
         </div>
       </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl text-balance">
@@ -60,15 +77,15 @@ export function HeroSection() {
 
         <div className="mx-auto mt-20 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="bg-card/50 border border-primary/20 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-green-900/70 to-neutral-900/70 border border-primary/20 rounded-lg p-6">
               <div className="text-3xl font-bold text-primary">$59,410</div>
               <div className="text-sm text-muted-foreground mt-1">Average Revenue Increase</div>
             </div>
-            <div className="bg-card/50 border border-primary/20 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-green-900/70 to-neutral-900/70 border border-primary/20 rounded-lg p-6">
               <div className="text-3xl font-bold text-primary">5.1%</div>
               <div className="text-sm text-muted-foreground mt-1">Efficiency Improvement</div>
             </div>
-            <div className="bg-card/50 border border-primary/20 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-green-900/70 to-neutral-900/70 border border-primary/20 rounded-lg p-6">
               <div className="text-3xl font-bold text-primary">$2,950</div>
               <div className="text-sm text-muted-foreground mt-1">Monthly Cost Savings</div>
             </div>

@@ -1,4 +1,4 @@
-import { Zap, Users } from "lucide-react"
+import { Zap, Users, ZapOffIcon } from "lucide-react"
 
 export function FeaturesSection() {
   return (
@@ -17,40 +17,78 @@ export function FeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {/* Growth Card */}
           <div className="bg-card/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10">
-            <div className="bg-black/40 rounded-2xl p-6 mb-6">
+            <div className="bg-black/40 rounded-2xl p-6 mb-6 group">
               <div className="text-primary text-sm font-semibold mb-4">Growth</div>
+
               <div className="flex items-end justify-between h-32 gap-2">
-                {[40, 60, 45, 70, 55, 85, 65, 90, 75, 95].map((height, i) => (
-                  <div key={i} className="flex-1 bg-primary rounded-t" style={{ height: `${height}%` }} />
+                <style>
+                  {`
+                    .bar {
+                      height: 50%;
+                      background-color: white;
+                      transition: height 0.8s ease, background-color 0.8s ease;
+                    }
+                    .group:hover .bar {
+                      height: 100%;
+                      background-color: #22c55e; /* Tailwind green-500 */
+                    }
+                  `}
+                </style>
+
+                {[...Array(10)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="bar flex-1 rounded-t"
+                    style={{ transitionDelay: `${i * 0.1}s` }}
+                  />
                 ))}
               </div>
+
+              {/* Year labels */}
               <div className="flex justify-between text-xs text-muted-foreground mt-2">
-                <span>Nov. 10</span>
-                <span>Nov. 11</span>
-                <span>Today</span>
+                <span>2024</span>
+                <span>2025</span>
               </div>
             </div>
           </div>
-
-          {/* Effortless Automation Card */}
+                
           <div className="bg-card/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10">
-            <div className="bg-black/40 rounded-2xl p-6 mb-4">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-black" />
+            <div className="relative h-[180px] mb-4">
+              {/* Task Reviewed */}
+              <div className="absolute top-0 left-5 z-0 translate-y-5 bg-black/40 rounded-2xl p-6 w-full max-w-md border before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-black-400 before:content-[''] before:pointer-events-none">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <ZapOffIcon className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-semibold">Completed</div>
+                    <div className="text-foreground font-semibold">Task Reviewed</div>
+                    <div className="text-xs text-muted-foreground">Today, 03:42</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-primary font-semibold">NEW</div>
-                  <div className="text-foreground font-semibold">Task executed</div>
-                  <div className="text-xs text-muted-foreground">Today, 11:50</div>
+              </div>
+
+              {/* Task Executed */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-black/80 rounded-2xl p-6 w-full max-w-md border before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-black-400 before:content-[''] before:pointer-events-none">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-primary font-semibold">NEW</div>
+                    <div className="text-foreground font-semibold">Task executed</div>
+                    <div className="text-xs text-muted-foreground">Today, 11:50</div>
+                  </div>
                 </div>
               </div>
             </div>
+
             <h3 className="text-xl font-bold text-foreground mb-3">Effortless Automation</h3>
             <p className="text-muted-foreground text-sm">
               Streamline operations by automating routine tasks, so your team can focus on what matters most.
             </p>
           </div>
+          
 
           {/* Scalable Card */}
           <div className="bg-card/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10">
@@ -102,22 +140,63 @@ export function FeaturesSection() {
           <div className="bg-card/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-primary/30 transition-all lg:col-span-2 hover:shadow-lg hover:shadow-primary/10">
             <h3 className="text-xl font-bold text-foreground mb-3">Human in the Loop</h3>
             <p className="text-muted-foreground text-sm mb-6">Seamless collaboration between staff and AI</p>
+
             <div className="flex items-center gap-4">
               <div className="flex -space-x-4">
-                <div className="w-16 h-16 rounded-full border-4 border-purple-500 overflow-hidden bg-gray-700">
-                  <img src="/diverse-woman-portrait.png" alt="Team member" className="w-full h-full object-cover" />
+                <div className="flex gap-6 justify-center items-center">
+                {/* 1st avatar */}
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-4 border-purple-500 overflow-hidden bg-gray-700">
+                  <img
+                    src="/diverse-woman-portrait.png"
+                    alt="Team member"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="w-16 h-16 rounded-full border-4 border-cyan-500 overflow-hidden bg-gray-700">
-                  <img src="/man.jpg" alt="Team member" className="w-full h-full object-cover" />
+
+                {/* 2nd avatar */}
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-4 border-cyan-500 overflow-hidden bg-gray-700">
+                  <img
+                    src="/man.jpg"
+                    alt="Team member"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="w-16 h-16 rounded-full border-4 border-primary overflow-hidden bg-gray-700">
-                  <img src="/diverse-group.png" alt="Team member" className="w-full h-full object-cover" />
+
+                {/* 3rd avatar with cursor + bubble */}
+                <div className="relative">
+                  {/* Avatar */}
+                  <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-4 border-primary overflow-hidden bg-gray-700">
+                    <img
+                      src="/diverse-group.png"
+                      alt="Team member"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Cursor outside avatar */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="absolute -right-0 -bottom-4 w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-8 rotate-6 drop-shadow-md pointer-events-none"
+                  >
+                    <path
+                      fill="#FFF"
+                      stroke="#000"
+                      strokeWidth="2"
+                      d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"
+                    />
+                  </svg>
+                  {/* Bubble bottom-right of cursor */}
+                  <div className="absolute -right-12 top-20 md:top-23 bg-primary text-black px-2 py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 rounded-full font-semibold text-xs md:text-sm lg:text-base shadow-lg">
+                    Eliah
+                  </div>  
                 </div>
-                <div className="w-16 h-16 rounded-full border-4 border-gray-600 bg-gray-800 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-gray-500" />
+                {/* 4th avatar */}
+                <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full border-4 border-gray-600 bg-gray-800 flex items-center justify-center">
+                  <Users className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-gray-500" />
                 </div>
               </div>
-              <div className="bg-primary text-black px-4 py-2 rounded-full font-semibold text-sm">Eliah</div>
+              </div>
             </div>
           </div>
         </div>
